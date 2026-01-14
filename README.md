@@ -2,123 +2,55 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الجمعية الخيرية مسك الختام</title>
-
-<!-- ØµÙˆØ±Ø© Ø¹Ù†Ø¯ Ù…Ø´Ø§Ø±ÙƒØ© Ø§Ù„Ø±Ø§Ø¨Ø· Ø¹Ù„Ù‰ ÙÙŠØ³Ø¨ÙˆÙƒ -->
-<meta property="og:title" content="Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„Ø®ÙŠØ±ÙŠØ© Ù…Ø³Ùƒ Ø§Ù„Ø®ØªØ§Ù… - Ø£ÙˆÙ‚Ø§Øª Ø§Ù„ØµÙ„Ø§Ø©">
-<meta property="og:description" content="Ø£ÙˆÙ‚Ø§Øª Ø§Ù„ØµÙ„Ø§Ø© Ø§Ù„ÙŠÙˆÙ…ÙŠØ© Ù„Ù„Ú¨Ø±Ø§Ø±Ù… â€“ ÙˆÙ„Ø§ÙŠØ© Ù…ÙŠÙ„Ø©.">
-<meta property="og:image" content="https://raw.githubusercontent.com/khen1/khenferwadhah-ai/main/prayer.jpg">
-<meta property="og:type" content="website">
-
+<title>مواقيت الصلاة - بلدية القرارم قوقة</title>
 <style>
-body {
-font-family: "Arial", sans-serif;
-background-color: #f0f5f0;
-color: #064e3b;
-margin: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
+body{
+    font-family: Arial;
+    text-align: center;
+    background: linear-gradient(#0b4d2b,#0e7a3c);
+    color: white;
 }
-.container {
-background-color: #e6f2e6;
-padding: 30px 40px;
-border-radius: 20px;
-box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-text-align: center;
-width: 360px;
-}
-h1 {
-color: #047857;
-margin-bottom: 15px;
-font-size: 22px;
-}
-ul {
-list-style: none;
-padding: 0;
-margin: 0 0 20px 0;
-}
-li {
-font-size: 18px;
-margin: 6px 0;
-}
-.date-time {
-margin-bottom: 15px;
-font-size: 16px;
-}
-footer {
-font-size: 14px;
-color: #065f46;
+.card{
+    background:white;
+    color:black;
+    margin:20px auto;
+    padding:20px;
+    width:320px;
+    border-radius:20px;
 }
 </style>
 </head>
+
 <body>
 
-<div class="container">
-<h1>Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„Ø®ÙŠØ±ÙŠØ© Ù…Ø³Ùƒ Ø§Ù„Ø®ØªØ§Ù…</h1>
+<h2>🕌 مواقيت الصلاة – بلدية القرارم قوقة</h2>
+<h3 id="date"></h3>
+<h1 id="clock"></h1>
 
-<!-- Ø§Ù„ØªØ§Ø±ÙŠØ® ÙˆØ§Ù„ÙˆÙ‚Øª -->
-<div class="date-time">
-<div id="gregorian"></div>
-<div id="hijri"></div>
-<div id="clock"></div>
-</div>
-
-<!-- Ø£ÙˆÙ‚Ø§Øª Ø§Ù„ØµÙ„Ø§Ø© -->
-<ul>
-<li>Ø§Ù„ÙØ¬Ø±: <span id="fajr"></span></li>
-<li>Ø§Ù„Ø´Ø±ÙˆÙ‚: <span id="sunrise"></span></li>
-<li>Ø§Ù„Ø¸Ù‡Ø±: <span id="dhuhr"></span></li>
-<li>Ø§Ù„Ø¹ØµØ±: <span id="asr"></span></li>
-<li>Ø§Ù„Ù…ØºØ±Ø¨: <span id="maghrib"></span></li>
-<li>Ø§Ù„Ø¹Ø´Ø§Ø¡: <span id="isha"></span></li>
-</ul>
-
-<footer>Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ù…Ø­ÙÙˆØ¸Ø© Â© Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„Ø®ÙŠØ±ÙŠØ© Ù…Ø³Ùƒ Ø§Ù„Ø®ØªØ§Ù…</footer>
+<div class="card">
+<p>الفجر: <span id="fajr"></span></p>
+<p>الظهر: <span id="dhuhr"></span></p>
+<p>العصر: <span id="asr"></span></p>
+<p>المغرب: <span id="maghrib"></span></p>
+<p>العشاء: <span id="isha"></span></p>
 </div>
 
 <script>
-// ========================
-// Ø§Ù„Ø³Ø§Ø¹Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© ÙˆØ§Ù„ØªØ§Ø±ÙŠØ®
-// ========================
-function updateClock() {
-const now = new Date();
+setInterval(()=>{
+    let now = new Date();
+    document.getElementById("clock").innerHTML = now.toLocaleTimeString();
+    document.getElementById("date").innerHTML = now.toLocaleDateString();
+},1000);
 
-// Ø§Ù„ØªØ§Ø±ÙŠØ® Ø§Ù„Ù…ÙŠÙ„Ø§Ø¯ÙŠ
-const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-document.getElementById("gregorian").innerText = "Ø§Ù„ØªØ§Ø±ÙŠØ® Ø§Ù„Ù…ÙŠÙ„Ø§Ø¯ÙŠ: " + now.toLocaleDateString('ar-DZ', options);
-
-// Ø§Ù„Ø³Ø§Ø¹Ø©
-const hours = String(now.getHours()).padStart(2,'0');
-const minutes = String(now.getMinutes()).padStart(2,'0');
-const seconds = String(now.getSeconds()).padStart(2,'0');
-document.getElementById("clock").innerText = "Ø§Ù„Ø³Ø§Ø¹Ø©: " + hours + ":" + minutes + ":" + seconds;
-
-// Ø§Ù„ØªØ§Ø±ÙŠØ® Ø§Ù„Ù‡Ø¬Ø±ÙŠ
-fetch("https://api.aladhan.com/v1/gToH?date=" + now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate())
-.then(res => res.json())
-.then(data => {
-document.getElementById("hijri").innerText = "Ø§Ù„ØªØ§Ø±ÙŠØ® Ø§Ù„Ù‡Ø¬Ø±ÙŠ: " + data.data.hijri.date;
-});
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-// ========================
-// Ø£ÙˆÙ‚Ø§Øª Ø§Ù„ØµÙ„Ø§Ø© Ù„Ù„Ú¨Ø±Ø§Ø±Ù… ÙˆÙ„Ø§ÙŠØ© Ù…ÙŠÙ„Ø©
-// ========================
-fetch("https://api.aladhan.com/v1/timings?latitude=36.276&longitude=6.162&method=3&timezonestring=Africa/Algiers")
-.then(response => response.json())
-.then(data => {
-const t = data.data.timings;
-document.getElementById("fajr").innerText = t.Fajr;
-document.getElementById("sunrise").innerText = t.Sunrise;
-document.getElementById("dhuhr").innerText = t.Dhuhr;
-document.getElementById("asr").innerText = t.Asr;
-document.getElementById("maghrib").innerText = t.Maghrib;
-document.getElementById("isha").innerText = t.Isha;
+fetch("https://api.aladhan.com/v1/timingsByCity?city=Mila&country=Algeria&method=2")
+.then(r=>r.json())
+.then(d=>{
+ let t=d.data.timings;
+ document.getElementById("fajr").innerHTML=t.Fajr;
+ document.getElementById("dhuhr").innerHTML=t.Dhuhr;
+ document.getElementById("asr").innerHTML=t.Asr;
+ document.getElementById("maghrib").innerHTML=t.Maghrib;
+ document.getElementById("isha").innerHTML=t.Isha;
 });
 </script>
 

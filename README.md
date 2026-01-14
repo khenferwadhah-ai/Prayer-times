@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الجمعية الخيرية مسك الختام - أوقات الصلاة</title>
+  <title>الجمعية الخيرية مسك الختام القرارم قوقة - أوقات الصلاة</title>
 
   <!-- صورة عند مشاركة الرابط على فيسبوك -->
   <meta property="og:title" content="الجمعية الخيرية مسك الختام - أوقات الصلاة">
